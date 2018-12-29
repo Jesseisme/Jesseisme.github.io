@@ -1,4 +1,5 @@
 # MyISAM和InnoDB
+date: 2017-06-26 16:28:09
 
 title: MyISAM和InnoDB几个知识点
 categories: 数据库
