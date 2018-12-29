@@ -1,0 +1,86 @@
+
+---
+layout:     post
+title:      "Optional的正确使用姿势"
+subtitle:   "写出优雅的代码"
+date:       2017-08-02 12:10:00
+author:     "Jesse"
+header-img: "img/post-bg-2015.jpg"
+tags:
+    - java
+---
+
+ Optional 中我们真正可依赖的应该是除了 isPresent() 和 get() 的其他方法:
+```java
+public<U> Optional<U> map(Function<? super T, ? extends U> mapper)
+public T orElse(T other)
+public T orElseGet(Supplier<? extends T> other)
+public void ifPresent(Consumer<? super T> consumer)
+public Optional<T> filter(Predicate<? super T> predicate)
+public<U> Optional<U> flatMap(Function<? super T, Optional<U>> mapper)
+public <X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X
+```
+
+> Optional 的三种构造方式: 
+Optional.of(obj) obj不能为空否则null exception
+Optional.ofNullable(obj)  可以为null的Optional实例
+Optional.empty()  返回没有值的Optional实例
+
+**存在即返回, 无则提供默认值**
+```java
+return user.orElse(null);
+//而不是 return user.isPresent() ? user.get() : null;
+return user.orElse(UNKNOWN_USER);
+
+```
+
+**存在即返回, 无则由函数来产生**
+```java
+return user.orElseGet(() -> fetchAUserFromDatabase()); 
+//而不要 return user.isPresent() ? user: fetchAUserFromDatabase();
+```
+**存在才对它做点什么**
+```java
+user.ifPresent(System.out::println);
+ 
+//而不要下边那样
+if (user.isPresent()) {
+  System.out.println(user.get());
+}
+```
+
+**map 函数使用**
+当 user.isPresent() 为真, 获得它关联的 orders, 为假则返回一个空集合时, 我们用上面的 orElse, orElseGet 方法都乏力时, 那原本就是 map 函数的责任, 我们可以这样一行
+```JAVA
+return user.map(u -> u.getOrders()).orElse(Collections.emptyList())
+
+//上面避免了我们类似 Java 8 之前的做法
+if(user.isPresent()) {
+  return user.get().getOrders();
+} else {
+  return Collections.emptyList();
+}
+```
+
+map  是可能无限级联的, 比如再深一层, 获得用户名的大写形式
+```java
+return user.map(u -> u.getUsername())
+           .map(name -> name.toUpperCase())
+           .orElse(null);
+ //而不是
+ User user = .....
+if(user != null) {
+  String name = user.getUsername();
+  if(name != null) {
+    return name.toUpperCase();
+  } else {
+    return null;
+  }
+} else {
+  return null;
+}
+```
+
+其他几个, filter() 把不符合条件的值变为 empty(),  flatMap() 总是与 map() 方法成对的,  orElseThrow() 在有值时直接返回, 无值时抛出想要的异常.
+
+一句话小结: 使用 Optional 时尽量不直接调用 Optional.get() 方法, Optional.isPresent() 更应该被视为一个私有方法, 应依赖于其他像 Optional.orElse(), Optional.orElseGet(), Optional.map() 等这样的方法.
