@@ -1,9 +1,9 @@
 # Site settings
-title: Jesse Blog
-SEOTitle: 黄俊杰的博客 | Hux Blog
-header-img: img/home-bg.jpg
+title: Jesse' Blog
+SEOTitle: 黄俊杰的博客 | Jesse Blog
+header-img: img/post-bg-2015.jpg
 email: jvyhuang@hotmail.com
-description: "关于程序与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
+description: "记录点滴"
 keyword: "黄俊杰, 黄俊杰的博客, Jesse Blog, 博客, 个人网站, 互联网, Web, 后端, 蛋蛋忧桑"
 url: "https://jessej.cn"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
