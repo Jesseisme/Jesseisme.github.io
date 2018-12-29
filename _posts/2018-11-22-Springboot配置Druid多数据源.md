@@ -8,7 +8,7 @@ tags:
 ---
 在单数据源的情况下，Spring Boot的配置非常简单，只需要在application.yml文件中配置连接参数即可。但是往往随着业务量发展，我们通常会进行数据库拆分或是引入其他数据库，从而我们需要配置多个数据源，
 #### 配置文件
-```
+```yaml
 spring:
   autoconfigure:
     ## 多数据源环境下必须排除掉 DataSourceAutoConfiguration，否则会导致循环依赖报错
@@ -34,7 +34,7 @@ spring:
           password: hello_pivot
 ```
 #### 主数据源配置
-```
+```java
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import org.apache.ibatis.session.SqlSessionFactory;
