@@ -1,10 +1,10 @@
 # Site settings
 title: Jesse' Blog
-SEOTitle: 黄俊杰的博客 | Jesse Blog
+SEOTitle: J的笔记 | Jesse Blog
 header-img: img/post-bg-2015.jpg
 email: jvyhuang@hotmail.com
 description: "记录点滴"
-keyword: "黄俊杰, 黄俊杰的博客, Jesse Blog, 博客, 个人网站, 互联网, Web, 后端, 蛋蛋忧桑"
+keyword: "黄俊杰, J的笔记, Jesse Blog, 博客, 个人网站, 互联网, Web, 后端, 蛋蛋忧桑"
 url: "https://jessej.cn/"             # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
