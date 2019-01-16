@@ -89,7 +89,7 @@ featured-condition-size: 1            # A tag will be featured if the size of it
 
 
 # Progressive Web Apps
-chrome-tab-theme-color: "#000000"
+chrome-tab-theme-color: "#28edd2"
 service-worker: true
 
 
@@ -101,11 +101,6 @@ page-mathjax: false
 
 # Friends
 friends: [
-
-    #{
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
     {
         title: "google",
         href: "http://google.com/"
