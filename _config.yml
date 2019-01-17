@@ -6,7 +6,7 @@ email: jvyhuang@hotmail.com
 description: "记录点滴"
 keyword: "黄俊杰, J的笔记, Jesse Blog, 博客, 个人网站, 互联网, Web, 后端, 蛋蛋忧桑"
 url: "https://jessej.cn/"             # your host, for absolute URL
-baseurl: "https://jessej.cn/"          # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: ""          # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
 future: true
