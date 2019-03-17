@@ -178,7 +178,7 @@ public class SpringAopSourceApplication {
 
 DefaultAdvisorAutoProxyCreator实现了BeanPostProcessor，Aware，ProxyConfig。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g14xxyos3ij30h8067wet.jpg)
+![](https://ws1.sinaimg.cn/large/006tKfTcly1g15j6q1yvlj30h80e5my1.jpg)
 
 看一下bean加载时的源码：
 
